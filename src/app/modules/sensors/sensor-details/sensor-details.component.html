@@ -1,0 +1,27 @@
+<ng-container *ngIf="sensor$ | async as sensor; else notFound">
+  <h1>SENSOR {{sensor.key}}</h1>
+  <table *ngIf="sensor$ | async as sensor; else notFound" class="table">
+    <tr>
+      <td><strong>Key</strong></td>
+      <td>{{sensor.key}}</td>
+    </tr>
+    <tr>
+      <td><strong>Time</strong></td>
+      <td>{{sensor.time | date: 'yyyy.MM.dd HH:mm:ss'}}</td>
+    </tr>
+    <tr>
+      <td><strong>Value</strong></td>
+      <td>{{sensor.value}}</td>
+    </tr>
+    <tr>
+      <td><strong>Description</strong></td>
+      <td>{{sensor.description}}</td>
+    </tr>
+  </table>
+</ng-container>
+
+<ng-template #notFound>
+  <span class="offset--sm">Sensor with key {{sensorKey$ | async}} not found</span>
+</ng-template>
+
+<button class="button" [routerLink]="['']">Back to dashboard</button>

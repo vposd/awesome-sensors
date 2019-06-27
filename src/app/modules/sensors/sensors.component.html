@@ -1,0 +1,20 @@
+<main class="page">
+  <nav class="page__nav">
+    <h1 [routerLink]="['/']" routerLinkActive="router-link-active">Sensors</h1>
+    <section>
+      <button class="button" (click)="manualUpdate()" *ngIf="!liveUpdateEnabled">
+        Update data
+      </button>
+
+      <button class="button" (click)="startLiveUpdate()" *ngIf="!liveUpdateEnabled">
+        Start live updates
+      </button>
+      <button class="button" (click)="stopLiveUpdate()" *ngIf="liveUpdateEnabled">
+        Stop live updates
+      </button>
+    </section>
+  </nav>
+  <section class="page__content">
+    <router-outlet></router-outlet>
+  </section>
+</main>

@@ -1,0 +1,8 @@
+<ng-container *ngIf="sensorData$ | async as sensorData">
+  <div class="label">
+    Sensor: {{sensorData.key}}
+  </div>
+  <div class="font--bold">
+    {{sensorData.value}}
+  </div>
+</ng-container>

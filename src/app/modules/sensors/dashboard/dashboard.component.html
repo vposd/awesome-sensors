@@ -1,0 +1,12 @@
+<cdk-virtual-scroll-viewport
+  #cdkViewport
+  class="cdk-viewport"
+  [itemSize]="itemHeight / cols"
+  [minBufferPx]="itemHeight / cols"
+  [maxBufferPx]="itemHeight / cols">
+  <app-sensor-value
+    *cdkVirtualFor="let sensorData of sensors$; trackBy: trackByKey; templateCacheSize: 0"
+    [routerLink]="[sensorData.key]"
+    [sensorKey]="sensorData.key">
+  </app-sensor-value>
+</cdk-virtual-scroll-viewport>

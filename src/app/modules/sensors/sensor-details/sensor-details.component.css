@@ -1,0 +1,15 @@
+:host {
+  padding: 2rem;
+}
+
+.offset--sm {
+  padding: 2rem;
+}
+
+.table {
+  margin: 2rem 0;
+}
+
+.table td {
+  padding: .5rem;
+}
