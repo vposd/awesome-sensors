@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { interval, of, Subject, BehaviorSubject, Observable } from 'rxjs';
+import { interval, of, Subject, BehaviorSubject } from 'rxjs';
 import { map, switchMap, startWith } from 'rxjs/operators';
 
 import { SENSORS_COUNT, SECOND } from './constants';

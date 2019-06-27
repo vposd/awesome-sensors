@@ -1,7 +1,7 @@
 import { interval } from 'rxjs';
 import { tap, map } from 'rxjs/operators';
 
-import { SECOND } from './constants';
+import { HOUR } from './constants';
 import { SensorData } from './types/sensor-data.interface';
 
 const generateKey = (id: number, size: number) => {
@@ -55,11 +55,11 @@ export class Sensor implements SensorData {
 
   private initialize() {
     const updateIntervalFrom = 1;
-    const updateIntervalTo = random(1, 5 * SECOND);
-    // const updateIntervalTo = random(1, HOUR * random(1, 5));
+    const updateIntervalTo = random(0, HOUR * random(1, 3));
 
     this.key = generateKey(Sensor.id++, 5);
+    this.value = 0;
     this.updateInterval = random(updateIntervalFrom, updateIntervalTo);
-    this.description = `Sensor ${this.key} updates each ${this.updateInterval}ms and provide values from ${this.valuesRangeFrom} to ${this.valuesRangeTo}`;
+    this.description = `Sensor ${this.key} updates each ${this.updateInterval}ms and provides values from ${this.valuesRangeFrom} to ${this.valuesRangeTo}`;
   }
 }
