@@ -54,8 +54,9 @@ export class Sensor implements SensorData {
   }
 
   private initialize() {
-    const updateIntervalFrom = 1;
-    const updateIntervalTo = random(0, HOUR * random(1, 3));
+    // Interval updates from 0ms to some hours
+    const updateIntervalFrom = 0;
+    const updateIntervalTo = random(0, HOUR * random(1, 2));
 
     this.key = generateKey(Sensor.id++, 5);
     this.value = 0;

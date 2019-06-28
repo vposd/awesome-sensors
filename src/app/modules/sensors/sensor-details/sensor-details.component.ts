@@ -32,7 +32,7 @@ export class SensorDetailsComponent implements OnInit {
     this.sensor$ = this.sensorKey$
       .pipe(
         switchMap(key =>
-          this.dataService.getSensorValue(key)
+          this.dataService.getSensorData(key)
         )
       );
   }

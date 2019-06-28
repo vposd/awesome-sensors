@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { DASHBOARD_SENSOR_ITEM_WIDTH, DASHBOARD_SENSOR_ITEM_HEIGHT, DASHBOARD_COLS_DEFAULT, DASHBOARD_ROWS_DEFAULT } from '../constants';
 import { DataService } from '../data.service';
 import { SensorData } from '../types/sensor-data.interface';
+import { take, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-dashboard',
@@ -32,7 +33,18 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     this.updateViewportOptions();
-    this.sensors$ = this.dataService.sensorsList$;
+    this.sensors$ = this.dataService.updates$
+      .pipe(
+        take(1),
+        map(sensorsObject =>
+          Object.keys(sensorsObject)
+            .map(key => sensorsObject[key])
+            .reduce((list, item) =>
+              (list.push(item), list),
+              []
+            )
+        )
+      );
   }
 
   trackByKey(_: number, item: SensorData) {

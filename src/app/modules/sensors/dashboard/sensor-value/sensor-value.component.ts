@@ -14,7 +14,7 @@ export class SensorValueComponent {
 
   @Input()
   set sensorKey(value: string) {
-    this.sensorData$ = this.dataService.getSensorValue(value);
+    this.sensorData$ = this.dataService.getSensorData(value);
   }
 
   sensorData$: Observable<SensorData>;
