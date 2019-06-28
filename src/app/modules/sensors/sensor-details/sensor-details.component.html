@@ -1,6 +1,6 @@
 <ng-container *ngIf="sensor$ | async as sensor; else notFound">
   <h1>SENSOR {{sensor.key}}</h1>
-  <table *ngIf="sensor$ | async as sensor; else notFound" class="table">
+  <table class="table">
     <tr>
       <td><strong>Key</strong></td>
       <td>{{sensor.key}}</td>
